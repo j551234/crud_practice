@@ -2,6 +2,9 @@ package com.example.practice;
 import com.example.practice.userBo;
 import com.example.practice.userEntity;
 import com.example.practice.userDao;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -23,5 +26,9 @@ public class userService {
         bo.setName(entity.getName());
         
         return bo;
+    }
+    public Iterable<userEntity> findAll(){
+    	return userDao.findAll();
+    	
     }
 }
