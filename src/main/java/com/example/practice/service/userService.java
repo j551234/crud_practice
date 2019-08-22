@@ -1,7 +1,7 @@
-package com.example.practice;
-import com.example.practice.userBo;
-import com.example.practice.userEntity;
-import com.example.practice.userDao;
+package com.example.practice.service;
+import com.example.practice.entity.userBo;
+import com.example.practice.entity.userDao;
+import com.example.practice.entity.userEntity;
 
 import java.util.List;
 
@@ -29,6 +29,10 @@ public class userService {
     }
     public Iterable<userEntity> findAll(){
     	return userDao.findAll();
+    	
+    }
+    public void deleteAll(){
+    	 userDao.deleteAll();
     	
     }
 }

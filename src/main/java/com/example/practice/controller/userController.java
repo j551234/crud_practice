@@ -1,6 +1,9 @@
-package com.example.practice;
+package com.example.practice.controller;
 
-import com.example.practice.userEntity;
+import com.example.practice.entity.userBo;
+import com.example.practice.entity.userEntity;
+import com.example.practice.service.userService;
+
 import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,21 +22,17 @@ public class userController {
 	userService addservice;
 	@GetMapping("/")
 	public String getUsers() {    
-	return "Hello Spring Security";
+	return "/save 加資料  /all 看資料 /delete 全部刪除";
 	}
 
 	@RequestMapping("/save")
     @ResponseBody
     public Iterable save() {
     	userBo bo =new userBo();
-    	bo.setId(20);
     	bo.setName("miny");
-    	System.out.println(bo.getName());
     	addservice.add(bo);
     	bo.setName("jim");
-    	bo.setId(1);
     	addservice.add(bo);
-    	bo.setId(23);
     	bo.setName("an");
     	addservice.add(bo);
     	return addservice.findAll();
@@ -44,5 +43,11 @@ public class userController {
     @ResponseBody
 	public Iterable findAll() {
 		return addservice.findAll();
+	}
+	@RequestMapping("/delete")
+	@ResponseBody
+	public String deleteALL() {
+	 addservice.deleteAll();
+	 return "ALL DELETE";
 	}
 }

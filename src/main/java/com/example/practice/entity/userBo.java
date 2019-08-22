@@ -1,4 +1,4 @@
-package com.example.practice;
+package com.example.practice.entity;
 
 public class userBo {
     private int id;
@@ -10,11 +10,11 @@ public class userBo {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id = id ;
 	}
 
 	public String getName() {
-		return name;
+		return name + "AAAAAAAAAAAA";
 	}
 
 	public void setName(String name) {
