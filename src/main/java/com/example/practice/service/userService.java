@@ -3,6 +3,7 @@ import com.example.practice.entity.userBo;
 import com.example.practice.entity.userDao;
 import com.example.practice.entity.userEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,8 @@ public class userService {
     public void deleteAll(){
     	 userDao.deleteAll();
     	
+    }
+    public void updateAll(ArrayList<userEntity> entities) {
+    	userDao.saveAll(entities);
     }
 }

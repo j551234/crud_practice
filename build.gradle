@@ -23,6 +23,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.json:json:+'
+	implementation 'com.google.code.gson:gson:+'
+	compile group: 'javax.json', name: 'javax.json-api', version: '1.1.4'
+	
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
