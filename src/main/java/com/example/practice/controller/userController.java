@@ -26,36 +26,43 @@ public class userController {
 	@Autowired
 	userService addservice;
 	userEntity User;
+
 	@GetMapping("/")
-	public String getUsers() {    
-	return "/save 加資料  /all 看資料 /delete 全部刪除";
+	public String getUsers() {
+		return "/save 加資料  /all 看資料 /delete 全部刪除";
 	}
 
 	@PostMapping("/save")
 	@ResponseBody
-    public Iterable save(@RequestBody userEntity user) {
-    	userBo bo =new userBo();
-    	bo.setName(user.getName());
-    	bo.setId(user.getId());
-    	addservice.add(bo);
-    	return addservice.findAll();
-	
-    }
+	public Iterable save(@RequestBody userEntity user) {
+		userBo bo = new userBo();
+		bo.setName(user.getName());
+		bo.setId(user.getId());
+		addservice.add(bo);
+		return addservice.findAll();
+
+	}
+
 	@RequestMapping("/all")
-    @ResponseBody
+	@ResponseBody
 	public Iterable findAll() {
 		return addservice.findAll();
 	}
+
 	@RequestMapping("/delete")
 	@ResponseBody
 	public String deleteALL() {
-	 addservice.deleteAll();
-	 return "ALL DELETE";
+		addservice.deleteAll();
+		return "ALL DELETE";
 	}
+	/**
+	 * 傳入格式為[{},{}]
+	 * 單筆或多筆皆可以做新增或修改的動作
+	 * */
 	@PostMapping("/update")
 	@ResponseBody
-    public Iterable update(@RequestBody ArrayList<userEntity> user) {
+	public Iterable update(@RequestBody ArrayList<userEntity> user) {
 		addservice.updateAll(user);
 		return addservice.findAll();
-    }
+	}
 }
